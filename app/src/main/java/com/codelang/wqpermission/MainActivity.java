@@ -42,6 +42,5 @@ public class MainActivity extends AppCompatActivity {
 //                JumpPermissionUtils.GoToSetting(MainActivity.this);
             }
         });
-
     }
 }

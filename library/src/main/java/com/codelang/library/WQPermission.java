@@ -7,12 +7,12 @@ import android.support.v4.app.FragmentManager;
 /**
  * @author wangqi
  * @since 2018/4/28 14:50
- *
+ * <p>
  * 简单的权限请求库
  */
 
 
-public class WQPermission extends Fragment {
+public class WQPermission {
 
     private final String WQ_PERMISSION = WQPermission.class.getSimpleName();
 
