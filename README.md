@@ -26,9 +26,15 @@
 
 ### 原理介绍
 
-通过给当前的FragmentActivity添加一个隐藏的Fragment
+通过给当前的FragmentActivity或是Fragment添加一个隐藏的Fragment
 
 ```
+//Activity中拿到manager
+ manager = activity.getSupportFragmentManager();
+//Fragment中拿到manager
+ manager = fragment.getChildFragmentManager();
+ 
+
  manager.beginTransaction()
         .add(wqFragment, WQ_PERMISSION)
         .commitAllowingStateLoss();

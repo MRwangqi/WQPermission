@@ -1,29 +1,47 @@
 package com.codelang.wqpermission;
 
+
 import android.Manifest;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.codelang.library.CallBack;
-import com.codelang.library.JumpPermissionUtils;
 import com.codelang.library.WQPermission;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class BlankFragment extends Fragment {
+
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_control, new BlankFragment()).commit();
+        View view = inflater.inflate(R.layout.fragment_blank, container, false);
+
+        view.findViewById(R.id.send).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                send();
+            }
+        });
+        return view;
     }
 
-    public void send(View view) {
+
+    public void send() {
+        Toast.makeText(getActivity(), "123", Toast.LENGTH_SHORT).show();
 
         String[] manifests = new String[]{Manifest.permission.CAMERA,
                 Manifest.permission.SEND_SMS,
@@ -32,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         WQPermission.getInstance().request(this, manifests, new CallBack() {
             @Override
             public void onGranted() {
-                Toast.makeText(MainActivity.this, "全部授予权限", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -45,6 +62,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }

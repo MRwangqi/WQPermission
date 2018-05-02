@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +66,7 @@ public class WQFragment extends Fragment {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
         if (requestCode == REQUEST_PERMISSION) {
             for (int i = 0; i < permission.length; i++) {
                 if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
